@@ -12,7 +12,8 @@ class Board extends Component {
             numSteps: 0,
             history: [ {squares: Array(9).fill(null)} ],
             squares1: Array(9).fill(null),
-            isXturn: true
+            isXturn: true,
+           
         }
     }
 
@@ -63,7 +64,8 @@ class Board extends Component {
         let statusPlayer;
         let confettiShow;
         if(winner) {
-            statusPlayer = `The Winner is  player ${winner}`;
+            console.log(winner.player, winner.squaresWin)
+            statusPlayer = `The Winner is  player ${winner.player}`;
             confettiShow = this.getConfetti();
         }
         else {
@@ -84,9 +86,9 @@ class Board extends Component {
                 <div className="status">{statusPlayer}</div>
                 {confettiShow}
                 <div className="game-board">
-                    <Line one={0} two={1} three={2} squares={currentSquares.squares} turn={this.state.isXturn} callback={ (updateSquares, turn) => this.getData(updateSquares, turn)} /> 
-                    <Line one={3} two={4} three={5} squares={currentSquares.squares} turn={this.state.isXturn} callback={ (updateSquares, turn) => this.getData(updateSquares, turn)} /> 
-                    <Line one={6} two={7} three={8} squares={currentSquares.squares} turn={this.state.isXturn} callback={ (updateSquares, turn) => this.getData(updateSquares, turn)} /> 
+                    <Line one={0} two={1} three={2} squares={currentSquares.squares} turn={this.state.isXturn} callback={ (updateSquares, turn) => this.getData(updateSquares, turn)} squaresWin={winner ? winner.squaresWin: []} /> 
+                    <Line one={3} two={4} three={5} squares={currentSquares.squares} turn={this.state.isXturn} callback={ (updateSquares, turn) => this.getData(updateSquares, turn)} squaresWin={winner ? winner.squaresWin: []} /> 
+                    <Line one={6} two={7} three={8} squares={currentSquares.squares} turn={this.state.isXturn} callback={ (updateSquares, turn) => this.getData(updateSquares, turn)} squaresWin={winner ? winner.squaresWin: []} /> 
                 </div>
                 <div className="game-info">
                     <ul>{steps}</ul>

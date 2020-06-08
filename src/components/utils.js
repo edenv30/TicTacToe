@@ -13,7 +13,7 @@ const calcWinner = (squares) => {
     for(let i=0; i< winnerCond.length; i++) {
         const [a,b,c] = winnerCond[i];
         if(squares[a] && squares[a] === squares[b] && squares[b] === squares[c]) {
-            return squares[a]; // the winner X or O
+            return {player: squares[a],squaresWin: [a,b,c]}; // the winner X or O
         }
     }
 

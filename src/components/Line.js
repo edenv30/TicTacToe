@@ -7,6 +7,7 @@ class Line extends Component {
     renderSquare = (i) => {
         return (
             <Square 
+                isWinning={this.props.squaresWin.includes(i)}
                 value={this.props.squares[i]}
                 onClick={ () => this.handleClick(i) }
             />

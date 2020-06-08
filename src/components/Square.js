@@ -4,7 +4,8 @@ class Square extends Component {
     
     render() {
         return (
-            <input className="square" type="button" value={this.props.value} 
+            <input className={this.props.isWinning ? "square--winning" : "square"} 
+                    type="button" value={this.props.value} 
                     onClick={ () => this.props.onClick() }
             />
         );
