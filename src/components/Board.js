@@ -64,7 +64,6 @@ class Board extends Component {
         let statusPlayer;
         let confettiShow;
         if(winner) {
-            console.log(winner.player, winner.squaresWin)
             statusPlayer = `The Winner is  player ${winner.player}`;
             confettiShow = this.getConfetti();
         }
